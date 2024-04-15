@@ -1,20 +1,16 @@
 import boto3
 
-dynamodb = boto3.client("dynamodb", endpoint_url="http://localhost:8000")
+dynamodb = boto3.client(
+    "dynamodb", region_name="ap-northeast-1", endpoint_url="http://localhost:8000"
+)
 
 dynamodb.create_table(
     AttributeDefinitions=[
-        {
-            "AttributeName": "Id",
-            "AttributeType": "N"
-        },
+        {"AttributeName": "Id", "AttributeType": "N"},
     ],
     TableName="test-table",
     KeySchema=[
-        {
-            "AttributeName": "Id",
-            "KeyType": "HASH"
-        },
+        {"AttributeName": "Id", "KeyType": "HASH"},
     ],
-    BillingMode="PAY_PER_REQUEST"
+    BillingMode="PAY_PER_REQUEST",
 )

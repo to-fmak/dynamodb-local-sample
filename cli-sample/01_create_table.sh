@@ -1,5 +1,6 @@
 aws dynamodb \
   --endpoint-url http://localhost:8000 \
+  --region ap-northeast-1 \
     create-table \
   --table-name test-table \
   --attribute-definitions \
